@@ -1,4 +1,4 @@
-package todo.rest
+package bookregister.rest
 
 import spock.lang.Specification
 

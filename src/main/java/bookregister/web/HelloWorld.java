@@ -1,4 +1,4 @@
-package todo.web;
+package bookregister.web;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;

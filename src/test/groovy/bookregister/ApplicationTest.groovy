@@ -1,9 +1,9 @@
-package todo
+package bookregister
 
 import org.springframework.boot.test.SpringApplicationConfiguration
 import org.springframework.boot.test.WebIntegrationTest
 import spock.lang.Specification
-import todo.rest.HelloWorldEndpoint
+import bookregister.rest.HelloWorldEndpoint
 
 import javax.inject.Inject
 

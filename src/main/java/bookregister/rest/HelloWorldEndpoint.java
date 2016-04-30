@@ -1,4 +1,4 @@
-package todo.rest;
+package bookregister.rest;
 
 import org.springframework.stereotype.Component;
 
