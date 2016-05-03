@@ -1,0 +1,30 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="5" author="Kamila Tes">
+        <createTable tableName="books_genres">
+            <column name="book_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="genre_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="book_id"
+            baseTableName="books_genres"
+            constraintName="fk_books_genres_book_id"
+            onDelete="CASCADE"
+            onUpdate="RESTRICT"
+            referencedColumnNames="id"
+            referencedTableName="books"/>
+        <addForeignKeyConstraint baseColumnNames="genre_id"
+            baseTableName="books_genres"
+            constraintName="fk_books_genres_genre_id"
+            onDelete="CASCADE"
+            onUpdate="RESTRICT"
+            referencedColumnNames="id"
+            referencedTableName="genres"/>
+    </changeSet>
+</databaseChangeLog>

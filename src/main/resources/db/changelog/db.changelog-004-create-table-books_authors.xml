@@ -1,0 +1,30 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="4" author="Kamila Tes">
+        <createTable tableName="books_authors">
+            <column name="author_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="book_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="author_id"
+            baseTableName="books_authors"
+            constraintName="fk_books_authors_author_id"
+            onDelete="CASCADE"
+            onUpdate="RESTRICT"
+            referencedColumnNames="id"
+            referencedTableName="authors"/>
+        <addForeignKeyConstraint baseColumnNames="book_id"
+            baseTableName="books_authors"
+            constraintName="fk_books_authors_book_id"
+            onDelete="CASCADE"
+            onUpdate="RESTRICT"
+            referencedColumnNames="id"
+            referencedTableName="books"/>
+    </changeSet>
+</databaseChangeLog>
