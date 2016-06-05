@@ -13,16 +13,14 @@ import java.time.LocalDate;
 @JsonAutoDetect
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthorDto {
+public class BookDto {
 
     private Long id;
 
-    private String firstName;
+    private String title;
 
-    private String surname;
+    private String originalTitle;
 
-    private LocalDate birthDate;
-
-    private LocalDate deathDate;
+    private LocalDate printDate;
 
 }

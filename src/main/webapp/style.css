@@ -1,0 +1,11 @@
+.container {
+    padding-top: 1em;
+}
+
+.nav-tabs {
+    margin-bottom: 1em;
+}
+
+.input-in-column {
+    width: 100% !important;
+}

@@ -10,6 +10,8 @@ public class AuthorConverter {
                 .id(author.getId())
                 .firstName(author.getFirstName())
                 .surname(author.getSurname())
+                .birthDate(author.getBirthDate())
+                .deathDate(author.getDeathDate())
                 .build();
     }
 
@@ -17,6 +19,8 @@ public class AuthorConverter {
         Author author = new Author();
         author.setFirstName(dto.getFirstName());
         author.setSurname(dto.getSurname());
+        author.setBirthDate(dto.getBirthDate());
+        author.setDeathDate(dto.getDeathDate());
         author.setId(dto.getId());
         return author;
     }

@@ -1,0 +1,38 @@
+<!doctype HTML>
+<html ng-app="bookRegister">
+    <head>
+        <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-resource.js"></script>
+        <script src="app/modules.js"></script>
+        <script src="app/authors/authors.js"></script>
+        <script src="app/authors/authorsApi.js"></script>
+        <script src="app/authors/authorsEdit.js"></script>
+        <script src="app/authors/authorsList.js"></script>
+        <script src="app/books/books.js"></script>
+        <script src="app/books/booksApi.js"></script>
+        <script src="app/books/booksEdit.js"></script>
+        <script src="app/books/booksList.js"></script>
+        <script src="app/tabs/tabsController.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row" ng-controller="TabsController">
+               <ul class="nav nav-tabs">
+                    <li ng-repeat="tab in tabs" role="presentation" ng-class="{active: isActive(tab.name)}">
+                        <a ng-bind="tab.label" ng-click="setActive(tab.name)"></a>
+                    </li>
+               </ul>
+                <div class="col-md-12" ng-show="isActive('authors')">
+                    <authors></authors>
+                </div>
+
+                <div class="col-md-12" ng-show="isActive('books')">
+                    <books></books>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

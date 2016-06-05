@@ -2,14 +2,20 @@ package bookregister.model;
 
 import bookregister.model.enums.Gender;
 import bookregister.model.enums.Nationality;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
 
+@Builder
 @Entity(name = "authors")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Author {
 
     @Id

@@ -1,13 +1,19 @@
 package bookregister.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
 
+@Builder
 @Entity(name = "books")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Book {
 
     @Id
@@ -48,7 +54,7 @@ public class Book {
     private Set<Author> authors;
 
     @Column
-    @ManyToMany(targetEntity = Genre.class, cascade = CascadeType.ALL)
+    @ManyToMany(targetEntity = Genre.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "books_genres",
             joinColumns = @JoinColumn(

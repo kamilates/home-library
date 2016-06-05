@@ -11,8 +11,8 @@
         </repository>
     </repositories>
 
-    <groupId>book-register</groupId>
-    <artifactId>book-register</artifactId>
+    <groupId>home-library</groupId>
+    <artifactId>home-library</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <parent>

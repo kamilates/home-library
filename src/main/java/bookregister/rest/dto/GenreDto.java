@@ -6,23 +6,18 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.util.Set;
 
 @Builder
 @Getter
 @JsonAutoDetect
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthorDto {
+public class GenreDto {
 
     private Long id;
 
-    private String firstName;
+    private String name;
 
-    private String surname;
-
-    private LocalDate birthDate;
-
-    private LocalDate deathDate;
-
+    private Set<BookDto> books;
 }
