@@ -1,5 +1,5 @@
 (function () {
-    angular.module('bookRegister')
+    angular.module('homeLibrary')
         .directive('authorsList', function () {
             return {
                 restrict: 'E',

@@ -1,5 +1,5 @@
 (function () {
-    angular.module('bookRegister')
+    angular.module('homeLibrary')
         .controller('TabsController', ['$scope', function ($scope) {
             var ctrl = $scope;
 

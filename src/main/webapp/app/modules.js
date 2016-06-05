@@ -1,3 +1,3 @@
 (function () {
-    angular.module('bookRegister', ['ngResource']);
+    angular.module('homeLibrary', ['ngResource']);
 })();

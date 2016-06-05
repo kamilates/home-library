@@ -1,5 +1,5 @@
 (function () {
-    angular.module('bookRegister')
+    angular.module('homeLibrary')
         .service('BooksApi', BooksApi)
 
     function BooksApi($resource) {
