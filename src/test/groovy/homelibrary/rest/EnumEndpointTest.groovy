@@ -1,4 +1,4 @@
-package homelibrary
+package homelibrary.rest
 
 import homelibrary.rest.EnumEndpoint
 import homelibrary.service.EnumValueListingService
