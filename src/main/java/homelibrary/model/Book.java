@@ -26,7 +26,6 @@ public class Book {
     @Column(nullable = false)
     private String originalTitle;
 
-    @Column
     private LocalDate printDate;
 
     @Column(nullable = false)
@@ -38,7 +37,6 @@ public class Book {
     @Column(nullable = false)
     private Boolean read;
 
-    @Column
     @ManyToMany(targetEntity = Author.class, cascade = CascadeType.ALL)
     @JoinTable(
         name = "books_authors",
@@ -53,7 +51,6 @@ public class Book {
     )
     private Set<Author> authors;
 
-    @Column
     @ManyToMany(targetEntity = Genre.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "books_genres",

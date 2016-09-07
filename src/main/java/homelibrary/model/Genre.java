@@ -16,7 +16,6 @@ public class Genre {
     @Column(nullable = false)
     private String name;
 
-    @Column
     @ManyToMany(targetEntity = Book.class, cascade = CascadeType.ALL, mappedBy = "genres", fetch = FetchType.EAGER)
     private Set<Book> books;
 

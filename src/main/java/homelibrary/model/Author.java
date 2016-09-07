@@ -28,10 +28,8 @@ public class Author {
     @Column(nullable = false)
     private String surname;
 
-    @Column
     private LocalDate birthDate;
 
-    @Column
     private LocalDate deathDate;
 
     @Enumerated(EnumType.STRING)
@@ -40,7 +38,6 @@ public class Author {
     @Enumerated(EnumType.STRING)
     private Nationality nationality;
 
-    @Column
     @ManyToMany(targetEntity = Book.class, cascade = CascadeType.ALL, mappedBy = "authors")
     private Set<Book> books;
 
