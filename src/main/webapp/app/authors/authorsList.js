@@ -7,27 +7,56 @@
                 templateUrl: 'app/authors/authorsList.html',
                 controllerAs: 'ctrl',
                 bindToController: true,
-                controller: ['AuthorsApi', function (AuthorsApi) {
-                    var ctrl = this;
+                controller: authorsListController
+            }
 
-                    ctrl.refresh = refresh;
+            function authorsListController($rootScope, AuthorsApi, AuthorsStateService) {
+                var ctrl = this;
+                var isErrorPresent = false;
+                var errorMessage = '';
 
-                    refresh();
+                ctrl.refresh = refresh;
+                ctrl.edit = edit;
+                ctrl.hasError = hasError;
+                ctrl.getError = getError;
 
-                    function refresh() {
-                        AuthorsApi.findAll().then(function (data) {
-                            ctrl.authors = getAuthorsFromResource(data);
+                refresh();
+
+                function refresh() {
+                    AuthorsApi.findAll().then(function (data) {
+                        ctrl.authors = getAuthorsFromResource(data);
+                    });
+                }
+
+                function getAuthorsFromResource(data) {
+                    var authors = [];
+                    for (var i = 0; i < data.length; i++) {
+                        authors.push(data[i]);
+                    }
+                    return authors;
+                }
+
+                function edit(id) {
+                    if (AuthorsStateService.isDirty()) {
+                        isErrorPresent = true;
+                        errorMessage = 'Something is already being edited. Save or discard changes first.';
+                        $(".author-edit-modal").modal();
+                    } else {
+                        $rootScope.$broadcast('loadAuthorForEdit', {
+                            id: id
                         });
                     }
+                }
 
-                    function getAuthorsFromResource(data) {
-                        var authors = [];
-                        for (var i = 0; i < data.length; i++) {
-                            authors.push(data[i]);
-                        }
-                        return authors;
-                    }
-                }]
+                function hasError() {
+                    return isErrorPresent;
+                }
+
+                function getError() {
+                    return errorMessage;
             }
+
+            authorsListController.$inject = ['$rootScope', 'AuthorsApi', 'AuthorsStateService'];
+          }
         });
 })();

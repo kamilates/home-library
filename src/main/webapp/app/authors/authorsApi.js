@@ -5,7 +5,8 @@
     function AuthorsApi($resource) {
         return {
             findAll: findAll,
-            save: save
+            save: save,
+            load: load
         };
 
         function findAll() {
@@ -14,6 +15,10 @@
 
         function save(dto) {
             return $resource('api/authors').save(dto).$promise;
+        }
+
+        function load(id) {
+            return $resource('api/authors/:id').get({id: id}).$promise;
         }
     }
 

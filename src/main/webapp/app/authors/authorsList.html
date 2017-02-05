@@ -3,8 +3,27 @@
         <div class="panel-heading"><h3>Authors list</h3></div>
         <div class="panel-body">
             <ul ng-repeat="author in ctrl.authors">
-                <li><span ng-bind="author.firstName"></span> <span ng-bind="author.surname"></span> </li>
+                <li><span ng-bind="author.firstName"></span> <span ng-bind="author.surname"></span>
+                    <button class="btn btn-xs btn-success" ng-click="ctrl.edit(author.id)">Edit</button>
+                </li>
             </ul>
+        </div>
+    </div>
+
+    <div class="modal fade author-edit-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-show="ctrl.hasError()">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">An error occured</h4>
+                </div>
+                <div class="modal-body">
+                    <span ng-bind="ctrl.getError()">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
